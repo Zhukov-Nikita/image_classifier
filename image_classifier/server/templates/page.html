@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<title>Image classifier</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='page.css') }}">
+  </head>
+  <body>
+  	<div class="box" >
+		<div class="parent">
+			<div class="div1">
+				<h3 class="h2text"> Квалификационный проект </h3>
+				<h4 class="stext">Использование API imagga.com для определения категории, цвета, тегов изображения.</h4>
+			</div>
+
+
+			<div class="div2">
+				{% if filename %}
+						<img class="pict" id=pict src="{{ url_for('display_image', filename=filename) }}">
+				{% else %}
+						<img class="pict" src="{{ url_for('static',filename='placeholder.jpg') }}">
+				{% endif %}
+			</div>
+			<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+			<script type=text/javascript>
+					$(function() {
+					  $('img#pict').on('load', function(e) {
+						e.preventDefault()
+						$.get('/category', function(data) {$('#category').html(data);});
+						$.get('/color', function(data) {$('#color').html(data);});
+						$.get('/usage', function(data) {$('#usage').html(data);});
+						$.get('/tags', function(data) {$('#tags').html(data);});
+					  });
+					});
+			</script>
+			<div class="div3">
+				<p>
+					{% with messages = get_flashed_messages() %}
+					  {% if messages %}
+						<ul>
+						{% for message in messages %}
+						  <p style="color:red">{{ message }}</p>
+						{% endfor %}
+						</ul>
+					  {% endif %}
+					{% endwith %}
+				</p>
+				<p id="category" class="datatext"></p>
+				<p id="color" class="datatext"></p>
+				<p id="tags" class="datatext"></p>
+			</div>
+			<div class="div4">
+				<form method="post" action="/" enctype="multipart/form-data">
+						<label for="file-upload" class="myButton" style="margin-top:8px;"> Выбрать изображение </label>
+						<input id="file-upload" type="file" name="file"  onchange="form.submit()" />
+				</form>
+			</div>
+			<div class="div5">
+				<label id="usage" class="datatext" style="vertical-align: middle;line-height: 48px;"></label>
+			</div>
+		</div>
+	</div>
+  </body>
+</html>

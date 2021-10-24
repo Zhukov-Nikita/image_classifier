@@ -1,0 +1,99 @@
+html {
+    height: 100%;
+    background-color: #8BC6EC;
+    background-image: linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%);
+}
+
+
+.parent {
+display: grid;
+grid-column-gap: 0px;
+grid-row-gap: 0px;
+}
+.div1 { grid-area: 1 / 1 / 2 / 5;}
+.div2 { grid-area: 2 / 1 / 3 / 3;
+height:404px;
+width:400px;
+}
+.div3 { grid-area: 2 / 3 / 3 / 5;
+ width:400px}
+.div4 { grid-area: 3 / 1 / 4 / 2;
+height:50px}
+.div5 { grid-area: 3 / 2 / 4 / 5; }
+
+input[type="file"] {
+    display: none;
+}
+.myButton {
+    box-shadow:inset 0px 1px 0px 0px #54a3f7;
+	background:linear-gradient(to bottom, #007dc1 5%, #0061a7 100%);
+	background-color:#007dc1;
+	border-radius:3px;
+	border:1px solid #124d77;
+	display:inline-block;
+	cursor:pointer;
+	color: #ffffff;
+	font-family:Arial;
+	font-size:13px;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #154682;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #0061a7 5%, #007dc1 100%);
+	background-color:#0061a7;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+.box{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background-color: white;
+    width: 800px;
+    border: 5px solid #0061a7;
+    border-radius: 15px;
+    -moz-border-radius: 15px;
+    padding: 20px;
+    padding-bottom: 0px;
+}
+.pict {
+    margin-left: 0px;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+}
+.h2text {
+    margin: 0px;
+    text-align: center;
+    font-family: Segoe UI, Verdana, sans-serif;
+    font-size: 25px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    color: #000000;
+    font-weight: normal;
+    text-decoration: none;
+    font-style: normal;
+    text-transform: none;
+}
+.datatext {
+    padding-left: 20px;
+    text-align: left;
+    font-family: Segoe UI, Verdana, sans-serif;
+    font-size: 15px;
+    color: #000000;
+    font-weight: normal;
+}
+
+.stext {
+    margin-top:5px;
+    text-align: center;
+    font-family: Segoe UI, Verdana, sans-serif;
+    font-size: 18px;
+    color: #000000;
+    font-weight: normal;
+}
